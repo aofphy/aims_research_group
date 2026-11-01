@@ -132,6 +132,8 @@ h1{font-size:clamp(38px,7vw,78px);line-height:1.04;letter-spacing:-.035em;max-wi
 .tgroup .team{margin-top:16px}
 .ask{margin-top:36px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 .ask p{color:var(--muted)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+@media(max-width:760px){.res{grid-template-columns:1fr}}
 /* publication list */
 .sub{font-size:20px;margin:44px 0 8px;letter-spacing:-.01em}
 #publist details{border-top:1px solid var(--line)}
@@ -308,6 +310,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="wrap">
     <h2 class="rv">Learn to compute at <span class="grad">scale</span></h2>
     <p class="lead rv">Our DFT and machine-learning work runs on high-performance computing (HPC) clusters. Students learn to use them well, a skill that carries into academic research and into industry careers in computational science and data science.</p>
+    <div class="res rv">
+      <div class="stat"><b data-n="296">0</b><span>CPU cores on the group's cluster at SUT</span></div>
+      <div class="stat"><b>P100</b><span>a GPU node with 16 CPU cores and one NVIDIA Tesla P100 GPU</span></div>
+      <div class="stat"><b>LANTA</b><span>project allocations on the LANTA supercomputer, for jobs that outgrow our own machines</span></div>
+    </div>
     <figure class="illus">
       <svg class="flow rv" viewBox="0 0 720 230" role="img" aria-label="A job is submitted, queued by the scheduler, run in parallel across compute nodes, and the results feed machine learning">
         <rect class="box" x="10" y="60" width="116" height="120" rx="8"/>
@@ -322,7 +329,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <text x="68" y="212">Job script</text><text x="248" y="212">Scheduler queue</text><text x="446" y="212">Compute nodes in parallel</text><text x="643" y="212">Results</text>
       </svg>
     </figure>
-    <!-- TODO: name the actual clusters and typical allocations once confirmed -->
+    <!-- TODO: add the size of the LANTA allocation if you want to state it -->
     <ol class="skills">
       <li class="rv"><b>Work on a Linux cluster.</b> Shell, file systems, modules, remote editing and sharing data safely.</li>
       <li class="rv"><b>Submit and manage batch jobs.</b> Write job scripts, use the scheduler queue, monitor runs and recover failed ones.</li>
