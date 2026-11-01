@@ -132,6 +132,10 @@ h1{font-size:clamp(38px,7vw,78px);line-height:1.04;letter-spacing:-.035em;max-wi
 .tgroup .team{margin-top:16px}
 .ask{margin-top:36px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 .ask p{color:var(--muted)}
+.theme .more{margin-top:10px}
+.theme .more a{color:var(--text);font-weight:600;font-size:15px;border-bottom:2px solid var(--accent);padding-bottom:1px}
+.theme .more a::after{content:" \2197"}
+.theme .more a:hover{color:var(--accent2)}
 .res{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
 @media(max-width:760px){.res{grid-template-columns:1fr}}
 /* publication list */
@@ -280,7 +284,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <p>Neural networks that predict XANES spectra from atomic structure instantly, inverse models that recover structure from XAS with calibrated uncertainty, and automated phase identification from XRD patterns.</p></div>
         <div class="tags"><span>XANES</span><span>XAS inversion</span><span>XRD</span><span>Uncertainty</span></div></article>
       <article class="theme rv"><span class="num">02</span><div><h3>ML-guided materials screening</h3>
-        <p>Predicting the effect of cationic dopants on hydroxyapatite from large databases, then checking the best candidates against DFT elastic tensors. Neural networks for the mechanical properties of bio-cement.</p></div>
+        <p>Predicting the effect of cationic dopants on hydroxyapatite from large databases, then checking the best candidates against DFT elastic tensors. Neural networks for the mechanical properties of bio-cement.</p>
+        <p class="more"><a href="https://aofphy.github.io/-hap-dopant-database/" target="_blank" rel="noopener">Explore the HAp dopant database</a></p></div>
         <div class="tags"><span>Hydroxyapatite</span><span>Screening</span><span>DFT validation</span><span>ANN</span></div></article>
       <article class="theme rv"><span class="num">03</span><div><h3>Deep learning for imaging</h3>
         <p>Diabetic retinopathy classification from fundus images, optical coherence tomography with deep learning for chick gender determination, and real-time pupil tracking for retinal imaging.</p></div>
