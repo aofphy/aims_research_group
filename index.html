@@ -73,6 +73,60 @@ h1{font-size:clamp(38px,7vw,78px);line-height:1.04;letter-spacing:-.035em;max-wi
 .pub h4{font-size:18px;line-height:1.4;margin-bottom:4px}
 .pub p{color:var(--muted);font-size:14px}
 
+/* about / research tracks / compute */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+.how h3{font-size:18px;margin-bottom:6px;color:var(--accent2)}
+.how p{color:var(--muted);font-size:15px}
+.partners{margin-top:36px;color:var(--muted);max-width:760px;font-size:15px}
+.partners b{color:var(--text)}
+.track{margin-top:72px}
+.track>h3{font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em;margin-bottom:8px}
+.track-intro{color:var(--muted);max-width:640px}
+.figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px;margin-top:48px}
+.fig a{display:block;background:#fff;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;padding:8px}
+.fig img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .35s}
+.fig a:hover img{transform:scale(1.04)}
+.fig figcaption{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.5}
+.fig figcaption b{display:block;color:var(--text);font-size:15px;margin-bottom:2px}
+.fig figcaption span{display:block;margin-top:4px;font-size:12px}
+.figcred{margin-top:20px;font-size:13px;color:var(--muted)}
+.illus{margin-top:40px}
+.illus figcaption{margin-top:12px;font-size:14px;color:var(--muted);max-width:640px}
+.flow{width:100%;max-width:760px;height:auto;display:block}
+.flow text{fill:var(--muted);font-size:13px;text-anchor:middle}
+.flow .in-box{fill:var(--text);font-size:12px}
+.flow .arr{stroke:var(--muted);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.flow .box{fill:var(--card);stroke:var(--line)}
+.flow .code{stroke:var(--muted);stroke-width:3;stroke-linecap:round;fill:none}
+.flow .bar{fill:var(--line);transform-box:fill-box}
+.flow .node{fill:var(--card);stroke:var(--line)}
+.flow .at{fill:var(--accent);opacity:.85}
+.flow .at:nth-child(even){fill:var(--muted)}
+.flow .edges line{stroke:var(--line);stroke-width:1}
+.flow .nn{fill:var(--card);stroke:var(--accent);stroke-width:1.5}
+.flow .spec{fill:none;stroke:var(--accent2);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.flow .axis{stroke:var(--line);stroke-width:1.5}
+/* these play once, when the figure scrolls into view */
+.flow.in .bar{animation:barin .5s both;animation-delay:var(--d)}
+.flow.in .node{animation:nodeon .4s both;animation-delay:var(--d)}
+.flow.in .nn{animation:nnon .4s both;animation-delay:var(--d)}
+.flow.in .spec{animation:draw 1.8s ease-out 1.8s both}
+@keyframes barin{from{opacity:0;transform:translateX(-16px)}}
+@keyframes nodeon{to{fill:var(--accent);stroke:var(--accent)}}
+@keyframes nnon{from{fill:var(--card)}to{fill:var(--accent)}}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.skills{list-style:none;margin-top:44px;counter-reset:s;border-top:1px solid var(--line)}
+.skills li{counter-increment:s;position:relative;padding:18px 0 18px 56px;border-bottom:1px solid var(--line);color:var(--muted)}
+.skills li::before{content:counter(s);position:absolute;left:0;top:14px;color:var(--accent);font-weight:700;font-size:22px}
+.skills b{color:var(--text)}
+@media(max-width:760px){.how{grid-template-columns:1fr;gap:20px}}
+@media(prefers-reduced-motion:reduce){
+  .flow .node{fill:var(--accent);stroke:var(--accent)}
+  .flow .nn{fill:var(--accent)}
+  .flow.in .bar,.flow.in .node,.flow.in .nn,.flow.in .spec{animation:none}
+  .fig img{transition:none}
+}
+
 /* publication list */
 .sub{font-size:20px;margin:44px 0 8px;letter-spacing:-.01em}
 #publist details{border-top:1px solid var(--line)}
@@ -92,10 +146,10 @@ h1{font-size:clamp(38px,7vw,78px);line-height:1.04;letter-spacing:-.035em;max-wi
 @media(max-width:520px){.pp{padding-left:0}}
 
 /* team */
-.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:44px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;margin-top:44px}
 .person{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px 18px;transition:transform .25s}
 .person:hover{transform:translateY(-4px)}
-.av{width:72px;height:72px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-weight:700;font-size:22px;color:var(--accent);border:1px solid var(--line);background:var(--bg2)}
+.av{display:block;width:104px;height:104px;border-radius:50%;object-fit:cover;object-position:top;margin:0 auto 14px;border:1px solid var(--line);background:var(--bg2)}
 .person b{display:block}
 .person span{color:var(--muted);font-size:14px}
 
@@ -125,6 +179,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
+      <li><a href="#compute">HPC</a></li>
       <li><a href="#pubs">Publications</a></li>
       <li><a href="#team">Team</a></li>
     </ul>
@@ -135,7 +190,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <header id="hero">
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap">
-    <h1>Teaching machines to design <span id="swap" class="grad">biomaterials</span></h1>
+    <h1>Using machines to design <span id="swap" class="grad">biomaterials</span></h1>
     <p class="lead">AIMS, at the School of Physics, Suranaree University of Technology, combines artificial intelligence with first-principles modeling to discover, understand and predict new materials.</p>
     <div class="cta">
       <a class="btn primary" href="#research">Explore our research</a>
@@ -147,37 +202,124 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <section id="about">
   <div class="wrap">
     <h2 class="rv">Where physics meets <span class="grad">data</span></h2>
-    <p class="lead rv">We are a research group in computational condensed matter physics. We run DFT simulations on supercomputers, train deep learning models on the results, and check both against real spectroscopy and experiments.</p>
+    <p class="lead rv">AIMS is built on computational condensed matter physics: density functional theory (DFT) calculations of real materials, checked against X-ray absorption, infrared, photoemission and other experiments. Machine learning sits on top of that foundation. It makes the physics faster and reaches problems that physics alone cannot.</p>
+    <div class="how rv">
+      <div><h3>DFT and first principles</h3><p>Electronic structure, band gap engineering and defect formation energies with VASP and Quantum ESPRESSO.</p></div>
+      <div><h3>Spectroscopy simulation</h3><p>XAS, XPS and IR spectra that fingerprint local structure and validate experimental data.</p></div>
+      <div><h3>Applied AI and ML</h3><p>Materials discovery, phase identification and image analysis for medical and agricultural problems.</p></div>
+    </div>
     <div class="stats rv">
-      <div class="stat"><b data-n="5">0</b><span>research directions</span></div>
+      <div class="stat"><b data-n="9">0</b><span>research themes in two tracks</span></div>
       <div class="stat"><b data-n="14640">0</b><span>forecast issuances benchmarked in one study</span></div>
       <div class="stat"><b data-n="7">0</b><span>models compared head to head</span></div>
       <div class="stat"><b data-n="48" data-suffix=" steps">0</b><span>half-hour steps forecast (24 h ahead) per prediction</span></div>
     </div>
+    <p class="partners rv"><b>Collaborators:</b> NANOTEC (NSTDA), Thai Synchrotron National Lab, Tohoku University, KAIST, UC Berkeley, Case Western Reserve University and the Institute for Basic Science. We are looking for partners in experimental physics, chemistry, materials engineering and medical research.</p>
   </div>
 </section>
 
 <section id="research">
   <div class="wrap">
-    <h2 class="rv">Research directions</h2>
-    <p class="lead rv">Five themes, one method: physics-based models for understanding, machine learning for speed.</p>
-    <div class="themes">
-      <article class="theme rv"><span class="num">01</span><div><h3>ML screening of dopants</h3>
-        <p>Predicting how cationic dopants change the elastic and structural behavior of hydroxyapatite, using large databases and cross-checking against DFT elastic tensors.</p></div>
-        <div class="tags"><span>Hydroxyapatite</span><span>Biomaterials</span><span>DFT</span></div></article>
-      <article class="theme rv"><span class="num">02</span><div><h3>High-entropy perovskites</h3>
-        <p>Electronic, optical and polarization properties of (Ba,Sr,Ca,Bi,Na)TiO3 with VASP, studied under strain for piezo-photocatalysis.</p></div>
-        <div class="tags"><span>VASP</span><span>SQS</span><span>Photocatalysis</span></div></article>
-      <article class="theme rv"><span class="num">03</span><div><h3>Spectroscopy meets AI</h3>
-        <p>Core-level binding energy shifts and X-ray absorption spectra as fingerprints of local structure, inverted by neural networks with calibrated uncertainty.</p></div>
-        <div class="tags"><span>XPS</span><span>XAS</span><span>FEFF</span><span>PyTorch</span></div></article>
-      <article class="theme rv"><span class="num">04</span><div><h3>Energy market forecasting</h3>
-        <p>Walk-forward benchmarks of tree-based and deep models for day-ahead and imbalance prices on the Japan Electric Power Exchange.</p></div>
-        <div class="tags"><span>LightGBM</span><span>LSTM</span><span>JEPX</span></div></article>
-      <article class="theme rv"><span class="num">05</span><div><h3>Medical image deep learning</h3>
-        <p>Classification systems for diabetic retinopathy from fundus images, turning clinical data into screening support.</p></div>
-        <div class="tags"><span>CNN</span><span>Fundus imaging</span><span>Healthcare</span></div></article>
+    <h2 class="rv">Research</h2>
+    <p class="lead rv">Two tracks, one method: physics-based models for understanding, machine learning for speed.</p>
+
+    <div class="track">
+      <h3 class="rv">Condensed matter physics and DFT</h3>
+      <p class="track-intro rv">The foundation of the group. First-principles calculations of defects, interfaces, surfaces and layered materials, always tied back to a measurement.</p>
+      <div class="themes">
+      <article class="theme rv"><span class="num">01</span><div><h3>Defects in oxides</h3>
+        <p>Where is the hydrogen, manganese or calcium atom, and what is it doing? We compute vibrational modes and X-ray absorption spectra for candidate defect sites and match them to infrared and XANES measurements in SrTiO3, BaTiO3 and CdTe.</p></div>
+        <div class="tags"><span>SrTiO3</span><span>BaTiO3</span><span>IR</span><span>XANES</span></div></article>
+      <article class="theme rv"><span class="num">02</span><div><h3>Interfaces and surfaces</h3>
+        <p>Strain, intermixing and the two-dimensional electron gas at LaAlO3/SrTiO3, and what core-level binding energy shifts in XPS reveal about the species sitting on a surface.</p></div>
+        <div class="tags"><span>LAO/STO</span><span>2DEG</span><span>XPS</span><span>MEIS</span></div></article>
+      <article class="theme rv"><span class="num">03</span><div><h3>2D materials and photoemission</h3>
+        <p>Band structures of HfSe2 and other layered materials, tuned by strain and alkali-metal dosing, compared directly with angle-resolved photoemission. MXenes and negative electronic compressibility.</p></div>
+        <div class="tags"><span>HfSe2</span><span>MXene</span><span>ARPES</span><span>Strain</span></div></article>
+      <article class="theme rv"><span class="num">04</span><div><h3>Energy materials</h3>
+        <p>Hydrogen storage, lithium-sulfur and lithium-ion batteries, supercapacitors and photocatalysts: how defects, doping and strain change ion diffusion, adsorption and charge transport.</p></div>
+        <div class="tags"><span>Batteries</span><span>Hydrogen storage</span><span>Photocatalysis</span><span>V2O5</span></div></article>
+      <article class="theme rv"><span class="num">05</span><div><h3>Functional and high-entropy oxides</h3>
+        <p>Electronic, optical and polarization properties of (Ba,Sr,Ca,Bi,Na)TiO3 with VASP, strain effects for piezo-photocatalysis, and elastic properties of materials under pressure.</p></div>
+        <div class="tags"><span>VASP</span><span>SQS</span><span>Elasticity</span><span>High pressure</span></div></article>
+      </div>
+      <div class="figs">
+      <figure class="fig rv"><a href="img/fig_mn_sites.jpg" target="_blank" rel="noopener"><img src="img/fig_mn_sites.jpg" alt="Where does manganese sit in SrTiO3?" loading="lazy"></a>
+        <figcaption><b>Where does manganese sit in SrTiO3?</b>Candidate Mn sites (Ti site, Sr site, interstitial and a complex with a Sr vacancy), compared through XANES. <span>Ceramics International 43, S381 (2017)</span></figcaption></figure>
+      <figure class="fig rv"><a href="img/fig_ca_xanes.jpg" target="_blank" rel="noopener"><img src="img/fig_ca_xanes.jpg" alt="Calcium in BaTiO3 and Bi0.5Na0.5TiO3" loading="lazy"></a>
+        <figcaption><b>Calcium in BaTiO3 and Bi0.5Na0.5TiO3</b>Ca K-edge XANES, measured and calculated, used to decide which lattice site Ca occupies. <span>Philosophical Magazine 95, 3785 (2015)</span></figcaption></figure>
+      <figure class="fig rv"><a href="img/fig_lao_strain.jpg" target="_blank" rel="noopener"><img src="img/fig_lao_strain.jpg" alt="Strain across a LaAlO3/SrTiO3 interface" loading="lazy"></a>
+        <figcaption><b>Strain across a LaAlO3/SrTiO3 interface</b>Layer-by-layer c/a ratio from first principles, set against medium-energy ion scattering. <span>Scientific Reports 6, 28118 (2016)</span></figcaption></figure>
+      <figure class="fig rv"><a href="img/fig_xps_o1s.jpg" target="_blank" rel="noopener"><img src="img/fig_xps_o1s.jpg" alt="Surface species from core-level shifts" loading="lazy"></a>
+        <figcaption><b>Surface species from core-level shifts</b>O 1s photoemission on LaAlO3/SrTiO3 with calculated adsorbate models for each peak. <span>J. Electron Spectrosc. Relat. Phenom. 218, 21 (2017)</span></figcaption></figure>
+      <figure class="fig rv"><a href="img/fig_hfse2.jpg" target="_blank" rel="noopener"><img src="img/fig_hfse2.jpg" alt="HfSe2 meets alkali metal" loading="lazy"></a>
+        <figcaption><b>HfSe2 meets alkali metal</b>ARPES of HfSe2 as cleaved and after alkali-metal dosing, with the layered structure. <span>Physical Review B 94, 201121 (2016)</span></figcaption></figure>
+      <figure class="fig rv"><a href="img/fig_na_bands.jpg" target="_blank" rel="noopener"><img src="img/fig_na_bands.jpg" alt="Bands tuned by strain" loading="lazy"></a>
+        <figcaption><b>Bands tuned by strain</b>Calculated bands and valence-band orbital splitting under uniaxial armchair and zigzag strain. <span>Physical Review B 97, 201104 (2018)</span></figcaption></figure>
+      </div>
+      <p class="figcred rv">Figures are from our published papers and conference talks. Click a figure to open it full size.</p>
     </div>
+
+    <div class="track">
+      <h3 class="rv">AI for materials and data</h3>
+      <p class="track-intro rv">Machine learning built on top of that physics: faster spectra, smarter screening, and real-world data problems from medicine to energy markets.</p>
+      <div class="themes">
+      <article class="theme rv"><span class="num">01</span><div><h3>Spectra from structure, and back</h3>
+        <p>Neural networks that predict XANES spectra from atomic structure instantly, inverse models that recover structure from XAS with calibrated uncertainty, and automated phase identification from XRD patterns.</p></div>
+        <div class="tags"><span>XANES</span><span>XAS inversion</span><span>XRD</span><span>Uncertainty</span></div></article>
+      <article class="theme rv"><span class="num">02</span><div><h3>ML-guided materials screening</h3>
+        <p>Predicting the effect of cationic dopants on hydroxyapatite from large databases, then checking the best candidates against DFT elastic tensors. Neural networks for the mechanical properties of bio-cement.</p></div>
+        <div class="tags"><span>Hydroxyapatite</span><span>Screening</span><span>DFT validation</span><span>ANN</span></div></article>
+      <article class="theme rv"><span class="num">03</span><div><h3>Deep learning for imaging</h3>
+        <p>Diabetic retinopathy classification from fundus images, optical coherence tomography with deep learning for chick gender determination, and real-time pupil tracking for retinal imaging.</p></div>
+        <div class="tags"><span>CNN</span><span>OCT</span><span>Medical</span><span>Agriculture</span></div></article>
+      <article class="theme rv"><span class="num">04</span><div><h3>Forecasting and data science</h3>
+        <p>Walk-forward benchmarks of gradient boosting and deep models for electricity prices on the Japan Electric Power Exchange, and neural networks for black hole mass in X-ray reverberating AGNs.</p></div>
+        <div class="tags"><span>LightGBM</span><span>LSTM</span><span>JEPX</span><span>AGN</span></div></article>
+      </div>
+      <figure class="illus">
+      <svg class="flow rv" viewBox="0 0 720 230" role="img" aria-label="A trained neural network turns an atomic structure into a spectrum">
+        <g class="at-g"><circle class="at" cx="35" cy="70" r="6"/><circle class="at" cx="69" cy="70" r="9"/><circle class="at" cx="103" cy="70" r="6"/><circle class="at" cx="35" cy="104" r="9"/><circle class="at" cx="69" cy="104" r="6"/><circle class="at" cx="103" cy="104" r="9"/><circle class="at" cx="35" cy="138" r="6"/><circle class="at" cx="69" cy="138" r="9"/><circle class="at" cx="103" cy="138" r="6"/><circle class="at" cx="35" cy="172" r="9"/><circle class="at" cx="69" cy="172" r="6"/><circle class="at" cx="103" cy="172" r="9"/></g>
+        <path class="arr" d="M130 120h70m-8-6l8 6-8 6"/>
+        <g class="edges"><line x1="250" y1="60" x2="330" y2="40"/><line x1="250" y1="60" x2="330" y2="85"/><line x1="250" y1="60" x2="330" y2="130"/><line x1="250" y1="60" x2="330" y2="175"/><line x1="250" y1="110" x2="330" y2="40"/><line x1="250" y1="110" x2="330" y2="85"/><line x1="250" y1="110" x2="330" y2="130"/><line x1="250" y1="110" x2="330" y2="175"/><line x1="250" y1="160" x2="330" y2="40"/><line x1="250" y1="160" x2="330" y2="85"/><line x1="250" y1="160" x2="330" y2="130"/><line x1="250" y1="160" x2="330" y2="175"/><line x1="330" y1="40" x2="410" y2="40"/><line x1="330" y1="40" x2="410" y2="85"/><line x1="330" y1="40" x2="410" y2="130"/><line x1="330" y1="40" x2="410" y2="175"/><line x1="330" y1="85" x2="410" y2="40"/><line x1="330" y1="85" x2="410" y2="85"/><line x1="330" y1="85" x2="410" y2="130"/><line x1="330" y1="85" x2="410" y2="175"/><line x1="330" y1="130" x2="410" y2="40"/><line x1="330" y1="130" x2="410" y2="85"/><line x1="330" y1="130" x2="410" y2="130"/><line x1="330" y1="130" x2="410" y2="175"/><line x1="330" y1="175" x2="410" y2="40"/><line x1="330" y1="175" x2="410" y2="85"/><line x1="330" y1="175" x2="410" y2="130"/><line x1="330" y1="175" x2="410" y2="175"/><line x1="410" y1="40" x2="490" y2="60"/><line x1="410" y1="40" x2="490" y2="110"/><line x1="410" y1="40" x2="490" y2="160"/><line x1="410" y1="85" x2="490" y2="60"/><line x1="410" y1="85" x2="490" y2="110"/><line x1="410" y1="85" x2="490" y2="160"/><line x1="410" y1="130" x2="490" y2="60"/><line x1="410" y1="130" x2="490" y2="110"/><line x1="410" y1="130" x2="490" y2="160"/><line x1="410" y1="175" x2="490" y2="60"/><line x1="410" y1="175" x2="490" y2="110"/><line x1="410" y1="175" x2="490" y2="160"/></g>
+        <circle class="nn" cx="250" cy="60" r="7" style="--d:0.6s"/><circle class="nn" cx="250" cy="110" r="7" style="--d:0.6s"/><circle class="nn" cx="250" cy="160" r="7" style="--d:0.6s"/><circle class="nn" cx="330" cy="40" r="7" style="--d:0.85s"/><circle class="nn" cx="330" cy="85" r="7" style="--d:0.85s"/><circle class="nn" cx="330" cy="130" r="7" style="--d:0.85s"/><circle class="nn" cx="330" cy="175" r="7" style="--d:0.85s"/><circle class="nn" cx="410" cy="40" r="7" style="--d:1.1s"/><circle class="nn" cx="410" cy="85" r="7" style="--d:1.1s"/><circle class="nn" cx="410" cy="130" r="7" style="--d:1.1s"/><circle class="nn" cx="410" cy="175" r="7" style="--d:1.1s"/><circle class="nn" cx="490" cy="60" r="7" style="--d:1.35s"/><circle class="nn" cx="490" cy="110" r="7" style="--d:1.35s"/><circle class="nn" cx="490" cy="160" r="7" style="--d:1.35s"/>
+        <path class="arr" d="M530 120h70m-8-6l8 6-8 6"/>
+        <path class="spec" pathLength="1" d="M612 190C626 190 630 70 646 70S660 160 674 140 688 100 706 112"/>
+        <line class="axis" x1="608" y1="196" x2="712" y2="196"/>
+        <text x="80" y="218">Atomic structure</text><text x="370" y="218">Trained network</text><text x="660" y="218">Spectrum</text>
+      </svg>
+      <figcaption class="rv">The idea in one picture: a trained network returns a spectrum for a given structure instantly, so thousands of candidates can be screened before any beamtime is booked.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="compute">
+  <div class="wrap">
+    <h2 class="rv">Learn to compute at <span class="grad">scale</span></h2>
+    <p class="lead rv">Our DFT and machine-learning work runs on high-performance computing (HPC) clusters. Students learn to use them well, a skill that carries into academic research and into industry careers in computational science and data science.</p>
+    <figure class="illus">
+      <svg class="flow rv" viewBox="0 0 720 230" role="img" aria-label="A job is submitted, queued by the scheduler, run in parallel across compute nodes, and the results feed machine learning">
+        <rect class="box" x="10" y="60" width="116" height="120" rx="8"/>
+        <path class="code" d="M28 84h50M28 102h72M28 120h40M28 138h64M28 156h30"/>
+        <path class="arr" d="M136 120h50m-8-6l8 6-8 6"/>
+        <rect class="bar" x="196" y="66" width="104" height="18" rx="3" style="--d:0.3s"/><rect class="bar" x="196" y="96" width="104" height="18" rx="3" style="--d:0.5s"/><rect class="bar" x="196" y="126" width="104" height="18" rx="3" style="--d:0.7s"/><rect class="bar" x="196" y="156" width="104" height="18" rx="3" style="--d:0.9000000000000001s"/>
+        <path class="arr" d="M310 120h50m-8-6l8 6-8 6"/>
+        <rect class="node" x="372" y="60" width="26" height="26" rx="4" style="--d:1.30s"/><rect class="node" x="408" y="60" width="26" height="26" rx="4" style="--d:1.39s"/><rect class="node" x="444" y="60" width="26" height="26" rx="4" style="--d:1.48s"/><rect class="node" x="480" y="60" width="26" height="26" rx="4" style="--d:1.57s"/><rect class="node" x="372" y="96" width="26" height="26" rx="4" style="--d:1.66s"/><rect class="node" x="408" y="96" width="26" height="26" rx="4" style="--d:1.75s"/><rect class="node" x="444" y="96" width="26" height="26" rx="4" style="--d:1.84s"/><rect class="node" x="480" y="96" width="26" height="26" rx="4" style="--d:1.93s"/><rect class="node" x="372" y="132" width="26" height="26" rx="4" style="--d:2.02s"/><rect class="node" x="408" y="132" width="26" height="26" rx="4" style="--d:2.11s"/><rect class="node" x="444" y="132" width="26" height="26" rx="4" style="--d:2.20s"/><rect class="node" x="480" y="132" width="26" height="26" rx="4" style="--d:2.29s"/><rect class="node" x="372" y="168" width="26" height="26" rx="4" style="--d:2.38s"/><rect class="node" x="408" y="168" width="26" height="26" rx="4" style="--d:2.47s"/><rect class="node" x="444" y="168" width="26" height="26" rx="4" style="--d:2.56s"/><rect class="node" x="480" y="168" width="26" height="26" rx="4" style="--d:2.65s"/>
+        <path class="arr" d="M516 120h50m-8-6l8 6-8 6"/>
+        <rect class="box" x="576" y="60" width="134" height="50" rx="8"/><text class="in-box" x="643" y="90">Energies, spectra</text>
+        <rect class="box" x="576" y="130" width="134" height="50" rx="8"/><text class="in-box" x="643" y="160">Train ML models</text>
+        <text x="68" y="212">Job script</text><text x="248" y="212">Scheduler queue</text><text x="446" y="212">Compute nodes in parallel</text><text x="643" y="212">Results</text>
+      </svg>
+    </figure>
+    <!-- TODO: name the actual clusters and typical allocations once confirmed -->
+    <ol class="skills">
+      <li class="rv"><b>Work on a Linux cluster.</b> Shell, file systems, modules, remote editing and sharing data safely.</li>
+      <li class="rv"><b>Submit and manage batch jobs.</b> Write job scripts, use the scheduler queue, monitor runs and recover failed ones.</li>
+      <li class="rv"><b>Run DFT in parallel.</b> VASP and Quantum ESPRESSO across many cores, with convergence tests and scaling checks before a big run.</li>
+      <li class="rv"><b>Automate workflows.</b> Python scripts that build structures, launch many calculations and parse the results.</li>
+      <li class="rv"><b>Turn results into models.</b> Collect the calculated data and train machine-learning models on it.</li>
+    </ol>
   </div>
 </section>
 
@@ -208,13 +350,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <section id="team">
   <div class="wrap">
     <h2 class="rv">Meet the team</h2>
-    <!-- TODO: replace with real members, roles and photos -->
+    <!-- TODO: add each member's role -->
     <div class="team">
-      <div class="person rv"><div class="av">IF</div><b>Ittipon Fongkaew</b><span>Principal investigator</span></div>
-      <div class="person rv"><div class="av">SJ</div><b>Sirichok Jungthawan</b><span>Researcher</span></div>
-      <div class="person rv"><div class="av">PS</div><b>Panithan Sriboriboon</b><span>Researcher</span></div>
-      <div class="person rv"><div class="av">LL</div><b>Longxun Liu</b><span>Researcher</span></div>
-      <div class="person rv"><div class="av">NP</div><b>Narasak Pandech</b><span>Collaborator</span></div>
+      <div class="person rv"><img class="av" src="img/ittipon.jpg" alt="Ittipon Fongkaew" width="104" height="104" loading="lazy"><b>Ittipon Fongkaew</b></div>
+      <div class="person rv"><img class="av" src="img/sirichok.jpg" alt="Sirichok Jungthawan" width="104" height="104" loading="lazy"><b>Sirichok Jungthawan</b></div>
+      <div class="person rv"><img class="av" src="img/xingji.jpg" alt="Xingji Tang" width="104" height="104" loading="lazy"><b>Xingji Tang</b></div>
+      <div class="person rv"><img class="av" src="img/longxun.jpg" alt="Longxun Liu" width="104" height="104" loading="lazy"><b>Longxun Liu</b></div>
+      <div class="person rv"><img class="av" src="img/ratsadakorn.jpg" alt="Ratsadakorn Yimsabai Maneewong" width="104" height="104" loading="lazy"><b>Ratsadakorn Yimsabai Maneewong</b></div>
+      <div class="person rv"><img class="av" src="img/keerati.jpg" alt="Keerati PK Keeratikarn" width="104" height="104" loading="lazy"><b>Keerati PK Keeratikarn</b></div>
+      <div class="person rv"><img class="av" src="img/panithan.jpg" alt="Panithan Sriboriboon" width="104" height="104" loading="lazy"><b>Panithan Sriboriboon</b></div>
     </div>
   </div>
 </section>
